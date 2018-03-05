@@ -11,6 +11,13 @@ public class Card {
     private Color color;
     private Point point;
 
+    /**
+     * 减少代码书写
+     */
+    public static Card of(Color color, Point point) {
+        return new Card(color, point);
+    }
+
     public Card() {
     }
 

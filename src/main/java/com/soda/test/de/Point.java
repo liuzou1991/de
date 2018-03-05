@@ -22,8 +22,7 @@ public enum Point {
     _J("11", 11),
     _Q("12", 12),
     _K("13", 13),
-    _A("A", 1),
-    ;
+    _A("A", 1),;
 
     private String name;
     private int number;
@@ -46,7 +45,7 @@ public enum Point {
 
     public int subtract(Point other) {
         int result = this.number - other.number;
-        if (this == _A) {
+        if (this == _A && result != 0) {
             result += 13;
         }
         return result;

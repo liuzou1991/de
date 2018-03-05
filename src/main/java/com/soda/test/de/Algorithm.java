@@ -21,7 +21,7 @@ public class Algorithm {
      * @param b 另外五张牌
      * @return 正数为a比b大，0相同，负数为b比a大
      */
-    public int compareCard(List<Card> a, List<Card> b) {
+    public static int compareCard(List<Card> a, List<Card> b) {
         if (a == null || b == null || a.size() != 5 || b.size() != 5) {
             throw new IllegalArgumentException("输入错误");
         }
@@ -51,7 +51,7 @@ public class Algorithm {
     }
 
     // 判断是否同花
-    private boolean isFlush(List<Card> cards) {
+    private static boolean isFlush(List<Card> cards) {
         // 此处私有方法，可保证一定是大小为5的输入
         Color color = null;
         for (Card card : cards) {
@@ -67,7 +67,7 @@ public class Algorithm {
     }
 
     // 判断是否是顺子，注意特例A2345为最小顺子，输入为升序列表
-    private boolean isStraight(List<Point> sortedPoints) {
+    private static boolean isStraight(List<Point> sortedPoints) {
         List<Point> _A2345 = Arrays.asList(Point._A, Point._2, Point._3, Point._4, Point._5);
         if (sortedPoints.containsAll(_A2345)) {
             // 由于Point是枚举，每个实例都是单例，所以Point无须重写equals()
@@ -90,7 +90,7 @@ public class Algorithm {
     }
 
     // 不考虑牌型的条件下比较两组点数的大小，输入均为升序的列表，且长度为5
-    private int comparePoint(List<Point> ap, List<Point> bp) {
+    private static int comparePoint(List<Point> ap, List<Point> bp) {
         int result;
         for (int i = 4; i >= 0; i--) {
             result = ap.get(i).subtract(bp.get(i));
