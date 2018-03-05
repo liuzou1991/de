@@ -1,4 +1,4 @@
-package com.suda.test.de;
+package com.soda.test.de;
 
 import java.util.Arrays;
 import java.util.List;

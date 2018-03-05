@@ -1,4 +1,4 @@
-package com.suda.test.de;
+package com.soda.test.de;
 
 /**
  * 扑克

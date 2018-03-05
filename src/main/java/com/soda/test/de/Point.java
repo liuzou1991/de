@@ -1,4 +1,4 @@
-package com.suda.test.de;
+package com.soda.test.de;
 
 /**
  * 点数，命名不太规范
