@@ -9,8 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.soda.test.de.Card.of;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * 使用junit5编写单元测试
@@ -93,9 +92,38 @@ class TestAlgorithm {
     }
 
     @Test
-    void testFlushAndStraight() {
+    void testFs() {
         assertEquals(0, Algorithm.compareCard(flushAndStraight1, flushAndStraight1));
-        assertEquals(-1, Algorithm.compareCard(flushAndStraight1, flushAndStraight2));
-        assertEquals(1, Algorithm.compareCard(flushAndStraight2, flushAndStraight1));
+        assertTrue(Algorithm.compareCard(flushAndStraight1, flushAndStraight2) < 0);
+        assertTrue(Algorithm.compareCard(flushAndStraight2, flushAndStraight1) > 0);
+    }
+
+    @Test
+    void testF() {
+        assertEquals(0, Algorithm.compareCard(flush1, flush1));
+        assertTrue(Algorithm.compareCard(flush1, flush2) < 0);
+        assertTrue(Algorithm.compareCard(flush2, flush1) > 0);
+    }
+
+    @Test
+    void testS() {
+        assertEquals(0, Algorithm.compareCard(straight1, straight1));
+        assertTrue(Algorithm.compareCard(straight1, straight2) < 0);
+        assertTrue(Algorithm.compareCard(straight2, straight1) > 0);
+    }
+
+    @Test
+    void testFsAndF() {
+        assertTrue(Algorithm.compareCard(flushAndStraight1, flush1) > 0);
+    }
+
+    @Test
+    void testFsAndS() {
+        assertTrue(Algorithm.compareCard(flushAndStraight1, straight1) > 0);
+    }
+
+    @Test
+    void testFAndS() {
+        assertTrue(Algorithm.compareCard(flush1, straight1) > 0);
     }
 }
