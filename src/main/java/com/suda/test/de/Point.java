@@ -2,13 +2,14 @@ package com.suda.test.de;
 
 /**
  * 点数，命名不太规范
+ * 枚举天然就有顺序（实现了Comparable），故将_A放至最后
+ * 定义减法，可辅助判断是否为顺子
  *
  * @author liuzhou
  *         create at 2018-03-05 19:40
  */
 public enum Point {
 
-    _A("A", 1),
     _2("2", 2),
     _3("3", 3),
     _4("4", 4),
@@ -21,6 +22,7 @@ public enum Point {
     _J("11", 11),
     _Q("12", 12),
     _K("13", 13),
+    _A("A", 1),
     ;
 
     private String name;
@@ -38,16 +40,15 @@ public enum Point {
                 '}';
     }
 
-    public int compare(Point o) {
-        if (this == o) {
-            return 0;
-        }
+    public int getNumber() {
+        return number;
+    }
+
+    public int subtract(Point other) {
+        int result = this.number - other.number;
         if (this == _A) {
-            return 1;
+            result += 13;
         }
-        if (o == _A) {
-            return -1;
-        }
-        return this.number - o.number;
+        return result;
     }
 }
